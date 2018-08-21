@@ -5,6 +5,8 @@
 //Do not accept negative rainfall - convert negatives to 0
 // Average = (x1 + x2 + xn)/n
 
+//GIT test
+
 float[] rainfall = { 15,0,-53,5,2,-99999 };
 float average = 0;
 int i = 0;
