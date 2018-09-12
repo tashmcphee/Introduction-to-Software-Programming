@@ -20,21 +20,26 @@ void draw() {
     //strokeWeight(4);
     fill(yellow);
     stroke(0);
-    triangle(20, 30, 30, 20, 20, 20);
+    //triangle(20, 30, 30, 20, 20, 20);
+    triangle(20, 20, 20, 120, 120, 20);
   }
   {
     //strokeWeight(4);
     fill(red);
-    rect(375, 375, 150, 150);
+    rect(300, 300, 200, 100);
   }
   {
     noFill();
     stroke(0);
-    //strokeWeight(20);
-    ellipse(420, 420, 100, 100);
+    strokeWeight(10);
+    ellipse(300, 400, 100, 100);
+    strokeWeight(0);
   }
 }
 
 
 //Whenever I add the strokeweight its adjusting to all shapes and lines so I've commented them out for now
 //Need to fix positioning of all shapes and strokeweight for ellipse
+
+
+//all code could have been placed in setup

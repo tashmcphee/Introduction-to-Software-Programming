@@ -1,35 +1,40 @@
-void setup(){
-  size(400,400);
+void setup() {
+  size(400, 400);
   background(255);
   //Call our function, draw a gradient from white to black
-  drawGradient(255);
+  for (int i = 1; i <= 5; i++) {
+    drawGradient(10/*x*/, 75+50*i/*y*/, false /*vertical*/, 255/*endValue*/, 255/*opacity*/, i%4/*col*/, 50/*widHei*/);
+  }
 }
 
 // drawGradient - Draws a grey-scale gradient, the gradient
 // starts at 0 (black) and lightens until it reaches
 // endValue.
-void drawGradient(int endValue){
-  for(int i = 0; i <= endValue; i++){
-    stroke(i);
-    line(10,i,60,i);
+void drawGradient(float x, float y, boolean vertical, int endValue, int opacity, int col, int widHei) {
+  if ( x < 0 || x > width || y < 0 || y > height || endValue < 0 || endValue > 255 ||
+  opacity < 0 || opacity > 255 || col < 0 || col > 3) {
+    println("invalid parameter");
+    return;
+  }
+  
+  for (int i = 0; i <= endValue; i++) {
+    if ( col == 0 ) {
+      //gray
+      stroke(i, opacity);
+    } else if ( col == 1 ) {
+      //red
+      stroke(i, 0, 0, opacity);
+    } else if ( col == 2 ) {
+      //green
+      stroke(0, i, 0, opacity);
+    } else if ( col == 3 ) {
+      //blue
+      stroke(0, 0, i, opacity);
+    }
+    if (vertical == true) {
+      line(x, i+y, widHei + x, i+y);
+    } else {
+      line(i+x, y, i+x, widHei + y);
+    }
   }
 }
-
-
-
-
-
-
-
-/*Parameter  Description  Possible Values
-x  X-coordinate of the top left corner of the gradient.   y  Y-coordinate of the top left corner of the gradient.   
-vertical  Determines if the gradient is drawn vertically or horizontally.  True - if the gradient is drawn vertically (darkest at top)
-False - if the gradient is drawn horizontally (darkest at left-side)
-endValue  The end value of the gradient (i.e. gradient will start at colour 0 and go to endValue).  0 to 255
-opacity  The opacity of the gradient.  0 to 255
-col  Determines the colour of the gradient.  0 - greyscale
-1 - red
-2 - green
-3 - blue
-*/
-//widHei  The width or height of the gradient (width if drawn vertically, height if drawn horizontally).   

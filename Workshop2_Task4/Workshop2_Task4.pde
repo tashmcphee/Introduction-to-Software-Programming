@@ -1,0 +1,10 @@
+size (400,400);
+fill(0,0,255);
+String message = "Hello World";
+String bob = "I like food";
+String welcome = message + bob;
+text(welcome,50,100);
+String whatever = "Numbers are fun";
+float favourite = 5.5;
+String numbers = whatever+favourite;
+text(numbers,50,300);
